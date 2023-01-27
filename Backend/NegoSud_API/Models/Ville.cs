@@ -7,6 +7,7 @@ namespace NegoSud_API.Models
 {
     public class Ville
     {
-        
+        public int Id { get; set; }
+        public string? NameVille { get; set; }
     }
 }

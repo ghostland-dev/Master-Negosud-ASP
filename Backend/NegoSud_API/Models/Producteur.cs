@@ -7,6 +7,7 @@ namespace NegoSud_API.Models
 {
     public class Producteur
     {
-        
+        public int Id { get; set; }
+        public string? NomProducteur { get; set; }
     }
 }

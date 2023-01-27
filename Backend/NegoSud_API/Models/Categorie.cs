@@ -7,6 +7,7 @@ namespace NegoSud_API.Models
 {
     public class Categorie
     {
-        
+        public int Id { get; set; }
+        public string? NameCategorie { get; set;}
     }
 }

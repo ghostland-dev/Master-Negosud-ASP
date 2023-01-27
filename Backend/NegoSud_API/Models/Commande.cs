@@ -7,6 +7,8 @@ namespace NegoSud_API.Models
 {
     public class Commande
     {
-        
+        public int Id { get; set; }
+        public string? Statut { get; set; }
+        public DateTime? DateCommande { get; set; }
     }
 }

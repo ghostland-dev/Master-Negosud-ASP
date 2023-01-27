@@ -7,6 +7,9 @@ namespace NegoSud_API.Models
 {
     public class Facture
     {
+        public int Id { get; set; }
+         public string? Reference { get; set; }
+        public float FactureTotal { get; set; }
         
     }
 }

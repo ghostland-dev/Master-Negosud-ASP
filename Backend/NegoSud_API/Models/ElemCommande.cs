@@ -7,6 +7,11 @@ namespace NegoSud_API.Models
 {
     public class ElemCommande
     {
-        
+        public int Id { get; set; }
+        public int? QuantiteCommande { get; set; }
+         public int? SeuilAlerte { get; set; }
+          public string? Alerte { get; set; }
+        public float TotalCommande { get; set; }
+
     }
 }

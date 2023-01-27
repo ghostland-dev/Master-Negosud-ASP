@@ -30,7 +30,6 @@ C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud
 C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud_API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud_API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud_API\bin\Debug\net7.0\Microsoft.NET.StringTools.dll
@@ -266,3 +265,4 @@ C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud
 C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud_API\bin\Debug\net7.0\MySql.EntityFrameworkCore.dll
 C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud_API\bin\Debug\net7.0\BouncyCastle.Crypto.dll
 C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud_API\bin\Debug\net7.0\Microsoft.CodeAnalysis.Elfie.dll
+C:\Users\imouy\Desktop\CESI Alternance\Depôt - Projets\CUEB-ASP\Backend\NegoSud_API\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll

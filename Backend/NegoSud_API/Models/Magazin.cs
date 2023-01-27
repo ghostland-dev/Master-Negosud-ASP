@@ -7,6 +7,16 @@ namespace NegoSud_API.Models
 {
     public class Magazin
     {
-        
+        public int Id { get; set; }
+        public string? NomMagazin { get; set;}
+        public string? Email { get; set; }
+        public string? Tel { get; set; }
+        public string? Fix { get; set; }
+        public string? Adresse { get; set; }
+        public string? Rue { get; set; }
+        public string? CodePostal { get; set; }
+        public string? Region { get; set; }
+        public string? Pays { get; set; }
+
     }
 }

@@ -7,6 +7,7 @@ namespace NegoSud_API.Models
 {
     public class ElemFacture
     {
+        public int Id { get; set; }
         
     }
 }
