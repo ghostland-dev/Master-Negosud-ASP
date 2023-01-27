@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NegoSud_API.Models;
+using NegoSud_API.Data;
 
 namespace NegoSud_API.Controllers
 {
@@ -24,10 +25,10 @@ namespace NegoSud_API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ville>>> GetVilles()
         {
-          if (_context.Villes == null)
-          {
-              return NotFound();
-          }
+            if (_context.Villes == null)
+            {
+                return NotFound();
+            }
             return await _context.Villes.ToListAsync();
         }
 
@@ -35,10 +36,10 @@ namespace NegoSud_API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Ville>> GetVille(int id)
         {
-          if (_context.Villes == null)
-          {
-              return NotFound();
-          }
+            if (_context.Villes == null)
+            {
+                return NotFound();
+            }
             var ville = await _context.Villes.FindAsync(id);
 
             if (ville == null)
@@ -85,10 +86,10 @@ namespace NegoSud_API.Controllers
         [HttpPost]
         public async Task<ActionResult<Ville>> PostVille(Ville ville)
         {
-          if (_context.Villes == null)
-          {
-              return Problem("Entity set 'NegosudDbContext.Villes'  is null.");
-          }
+            if (_context.Villes == null)
+            {
+                return Problem("Entity set 'NegosudDbContext.Villes'  is null.");
+            }
             _context.Villes.Add(ville);
             await _context.SaveChangesAsync();
 

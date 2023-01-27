@@ -8,7 +8,7 @@ using NegoSud_API.Models;
  
  
 
-namespace NegoSud_API.Models
+namespace NegoSud_API.Data
 {
     public class NegosudDbContext : DbContext
     {
@@ -31,7 +31,7 @@ namespace NegoSud_API.Models
         public DbSet<Produit> Produits {get; set; }= null!;
         public DbSet<Producteur> Producteurs {get; set; }= null!;
         public DbSet<Fournisseur> Fournisseurs {get; set; }= null!;
-        public DbSet<Magazin> Magazins {get; set; }= null!;
+        public DbSet<Magasin> Magasins {get; set; }= null!;
         public DbSet<Inventaire> Inventaires {get; set; }= null!;
         public DbSet<Categorie> Categories {get; set; }= null!;
      

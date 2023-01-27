@@ -9,5 +9,7 @@ namespace NegoSud_API.Models
     {
         public int Id { get; set; }
         public string? NameCategorie { get; set;}
+
+        public IList<Produit>? Produit { get; set;}
     }
 }

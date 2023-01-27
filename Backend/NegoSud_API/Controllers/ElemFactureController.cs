@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NegoSud_API.Models;
+using NegoSud_API.Data;
 
 namespace NegoSud_API.Controllers
 {

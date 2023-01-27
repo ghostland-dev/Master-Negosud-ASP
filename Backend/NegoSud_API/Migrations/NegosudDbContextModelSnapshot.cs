@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NegoSud_API.Models;
+using NegoSud_API.Data;
 
 #nullable disable
 
@@ -226,7 +226,7 @@ namespace NegoSudAPI.Migrations
                     b.ToTable("Inventaires");
                 });
 
-            modelBuilder.Entity("NegoSud_API.Models.Magazin", b =>
+            modelBuilder.Entity("NegoSud_API.Models.Magasin", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -244,7 +244,7 @@ namespace NegoSudAPI.Migrations
                     b.Property<string>("Fix")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("NomMagazin")
+                    b.Property<string>("NomMagasin")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Pays")
@@ -261,7 +261,7 @@ namespace NegoSudAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Magazins");
+                    b.ToTable("Magasins");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Pays", b =>

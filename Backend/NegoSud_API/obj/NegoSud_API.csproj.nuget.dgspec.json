@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\imouy\\Desktop\\CESI Alternance\\Depôt - Projets\\CUEB-ASP\\Backend\\NegoSud_API\\NegoSud_API.csproj": {}
+    "C:\\Users\\imouy\\Desktop\\CESI Alternance\\Depôt - Projets\\CUEB-ASP\\Backend\\NegoSud_API\\NegoSud_API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\imouy\\Desktop\\CESI Alternance\\Depôt - Projets\\CUEB-ASP\\Backend\\NegoSud_API\\NegoSud_API.csproj": {
+    "C:\\Users\\imouy\\Desktop\\CESI Alternance\\Depôt - Projets\\CUEB-ASP\\Backend\\NegoSud_API\\NegoSud_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\imouy\\Desktop\\CESI Alternance\\Depôt - Projets\\CUEB-ASP\\Backend\\NegoSud_API\\NegoSud_API.csproj",
+        "projectUniqueName": "C:\\Users\\imouy\\Desktop\\CESI Alternance\\Depôt - Projets\\CUEB-ASP\\Backend\\NegoSud_API\\NegoSud_API.csproj",
         "projectName": "NegoSud_API",
-        "projectPath": "c:\\Users\\imouy\\Desktop\\CESI Alternance\\Depôt - Projets\\CUEB-ASP\\Backend\\NegoSud_API\\NegoSud_API.csproj",
+        "projectPath": "C:\\Users\\imouy\\Desktop\\CESI Alternance\\Depôt - Projets\\CUEB-ASP\\Backend\\NegoSud_API\\NegoSud_API.csproj",
         "packagesPath": "C:\\Users\\imouy\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\imouy\\Desktop\\CESI Alternance\\Depôt - Projets\\CUEB-ASP\\Backend\\NegoSud_API\\obj\\",
+        "outputPath": "C:\\Users\\imouy\\Desktop\\CESI Alternance\\Depôt - Projets\\CUEB-ASP\\Backend\\NegoSud_API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\ComponentOne\\WPF Edition\\bin\\v5\\",

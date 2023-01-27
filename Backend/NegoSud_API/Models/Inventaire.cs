@@ -15,6 +15,11 @@ namespace NegoSud_API.Models
         public string? Millesime { get; set; }
         public string? position { get; set;}
         public int QuantiteStock { get; set; }
+        public DateTime DateCreation { get; set; }
+        public DateTime DateModification { get; set; }
+
+
+        public IList<Produit>? Produits { get; set; }
 
     }
 }

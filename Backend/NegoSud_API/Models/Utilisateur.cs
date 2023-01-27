@@ -19,6 +19,7 @@ namespace NegoSud_API.Models
         public string? SIREN  { get; set; }
         public DateTime? DateInscription  { get; set; } = DateTime.Now;
         public DateTime? DateModification  { get; set; }
+ 
 
     }
 }

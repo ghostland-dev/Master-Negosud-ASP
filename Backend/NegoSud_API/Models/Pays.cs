@@ -9,5 +9,6 @@ namespace NegoSud_API.Models
     {
         public int Id { get; set; }
         public string? NamePays { get; set; }
+
     }
 }

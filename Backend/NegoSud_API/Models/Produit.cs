@@ -26,5 +26,16 @@ namespace NegoSud_API.Models
         public float Volume { get; set; }
         public DateTime DateCreation { get; set; }
         public DateTime DateModification { get; set; }
+
+        // Foreign keys
+        public int? ProducteurId { get; set; }
+        public Producteur? Producteur { get; set; }
+        public int? FournisseurId { get; set; }
+        public Fournisseur? Fournisseur {set; get;}
+        public int? CategorieId { get; set; }
+        public Categorie? Categorie { get; set; }
+
+   
+   
     }
 }

@@ -199,12 +199,12 @@ namespace NegoSudAPI.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Magazins",
+                name: "Magasins",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    NomMagazin = table.Column<string>(type: "longtext", nullable: true)
+                    NomMagasin = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Email = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -225,7 +225,7 @@ namespace NegoSudAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Magazins", x => x.Id);
+                    table.PrimaryKey("PK_Magasins", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -395,7 +395,7 @@ namespace NegoSudAPI.Migrations
                 name: "Inventaires");
 
             migrationBuilder.DropTable(
-                name: "Magazins");
+                name: "Magasins");
 
             migrationBuilder.DropTable(
                 name: "Pays");

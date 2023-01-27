@@ -16,6 +16,10 @@ namespace NegoSud_API.Models
         public string? Region { get; set; }
         public string? Pays { get; set; }
         public string? typeAdresse { get; set; }
-        
+        public DateTime DateCreation { get; set; }
+        public DateTime DateModification { get; set; }
+
+        public int? UtilisateurId { get; set; }
+        public Utilisateur?  Utilisateur { get; set; }
     }
 }
