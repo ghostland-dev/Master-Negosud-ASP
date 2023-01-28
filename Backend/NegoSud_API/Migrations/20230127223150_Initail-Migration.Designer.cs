@@ -11,7 +11,7 @@ using NegoSud_API.Data;
 namespace NegoSudAPI.Migrations
 {
     [DbContext(typeof(NegosudDbContext))]
-    [Migration("20230127202055_Initail-Migration")]
+    [Migration("20230127223150_Initail-Migration")]
     partial class InitailMigration
     {
         /// <inheritdoc />
@@ -24,7 +24,7 @@ namespace NegoSudAPI.Migrations
 
             modelBuilder.Entity("NegoSud_API.Models.Adresse", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AdresseId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -37,6 +37,12 @@ namespace NegoSudAPI.Migrations
                     b.Property<string>("CodePostal")
                         .HasColumnType("longtext");
 
+                    b.Property<DateTime>("DateCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateModification")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Pays")
                         .HasColumnType("longtext");
 
@@ -46,20 +52,25 @@ namespace NegoSudAPI.Migrations
                     b.Property<string>("Rue")
                         .HasColumnType("longtext");
 
+                    b.Property<int?>("UtilisateurId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Ville")
                         .HasColumnType("longtext");
 
                     b.Property<string>("typeAdresse")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("AdresseId");
+
+                    b.HasIndex("UtilisateurId");
 
                     b.ToTable("Adresses");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Catalogue", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CatalogueId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -69,50 +80,70 @@ namespace NegoSudAPI.Migrations
                     b.Property<string>("Reference")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("CatalogueId");
 
                     b.ToTable("Catalogues");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Categorie", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CategorieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("NameCategorie")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("CategorieId");
 
                     b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Commande", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CommandeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("DateCommande")
+                    b.Property<DateTime>("DateAnnullation")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateCommande")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateLivrison")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("ElemCommandeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Reference")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Statut")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("CommandeId");
+
+                    b.HasIndex("ElemCommandeId");
 
                     b.ToTable("Commandes");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.ElemCommande", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ElemCommandeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Alerte")
                         .HasColumnType("longtext");
+
+                    b.Property<DateTime>("DateCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateModification")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int?>("QuantiteCommande")
                         .HasColumnType("int");
@@ -123,27 +154,44 @@ namespace NegoSudAPI.Migrations
                     b.Property<float>("TotalCommande")
                         .HasColumnType("float");
 
-                    b.HasKey("Id");
+                    b.HasKey("ElemCommandeId");
 
                     b.ToTable("ElemCommandes");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.ElemFacture", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ElemFactureId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<DateTime>("DateCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateModification")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("FactureId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ElemFactureId");
+
+                    b.HasIndex("FactureId");
 
                     b.ToTable("ElemFactures");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Facture", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("FactureId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateModification")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<float>("FactureTotal")
                         .HasColumnType("float");
@@ -151,19 +199,30 @@ namespace NegoSudAPI.Migrations
                     b.Property<string>("Reference")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.Property<int?>("UtilisateurId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FactureId");
+
+                    b.HasIndex("UtilisateurId");
 
                     b.ToTable("Factures");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Fournisseur", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("FournisseurId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Adresse")
                         .HasColumnType("longtext");
+
+                    b.Property<DateTime>("DateCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateModification")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
                         .HasColumnType("longtext");
@@ -176,6 +235,9 @@ namespace NegoSudAPI.Migrations
 
                     b.Property<string>("Pays")
                         .HasColumnType("longtext");
+
+                    b.Property<int?>("PaysId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Region")
                         .HasColumnType("longtext");
@@ -192,14 +254,16 @@ namespace NegoSudAPI.Migrations
                     b.Property<string>("Ville")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("FournisseurId");
+
+                    b.HasIndex("PaysId");
 
                     b.ToTable("Fournisseurs");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Inventaire", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("InventaireId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -211,6 +275,12 @@ namespace NegoSudAPI.Migrations
 
                     b.Property<string>("Couleur")
                         .HasColumnType("longtext");
+
+                    b.Property<DateTime>("DateCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateModification")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Millesime")
                         .HasColumnType("longtext");
@@ -224,14 +294,14 @@ namespace NegoSudAPI.Migrations
                     b.Property<string>("position")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("InventaireId");
 
                     b.ToTable("Inventaires");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Magasin", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MagasinId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -240,6 +310,12 @@ namespace NegoSudAPI.Migrations
 
                     b.Property<string>("CodePostal")
                         .HasColumnType("longtext");
+
+                    b.Property<DateTime>("DateCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateModification")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
                         .HasColumnType("longtext");
@@ -253,8 +329,14 @@ namespace NegoSudAPI.Migrations
                     b.Property<string>("Pays")
                         .HasColumnType("longtext");
 
+                    b.Property<int?>("PaysId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Region")
                         .HasColumnType("longtext");
+
+                    b.Property<int?>("RegionId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Rue")
                         .HasColumnType("longtext");
@@ -262,42 +344,74 @@ namespace NegoSudAPI.Migrations
                     b.Property<string>("Tel")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.Property<int?>("VilleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MagasinId");
+
+                    b.HasIndex("PaysId");
+
+                    b.HasIndex("RegionId");
+
+                    b.HasIndex("VilleId");
 
                     b.ToTable("Magasins");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Pays", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PaysId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("NamePays")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("PaysId");
 
                     b.ToTable("Pays");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Producteur", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProducteurId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("NomProducteur")
+                    b.Property<DateTime>("DateCreation")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateModification")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Email")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Nom")
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("PaysId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Prenom")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("RaisonSocial")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Tel")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("ProducteurId");
+
+                    b.HasIndex("PaysId");
 
                     b.ToTable("Producteurs");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Produit", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProduitId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -309,6 +423,12 @@ namespace NegoSudAPI.Migrations
 
                     b.Property<string>("Ancien")
                         .HasColumnType("longtext");
+
+                    b.Property<int?>("CatalogueId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CategorieId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Conservation")
                         .HasColumnType("longtext");
@@ -328,14 +448,29 @@ namespace NegoSudAPI.Migrations
                     b.Property<string>("Expiration")
                         .HasColumnType("longtext");
 
+                    b.Property<int?>("FactureId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FournisseurId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ImagePrincipal")
                         .HasColumnType("longtext");
+
+                    b.Property<int?>("InventaireId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MagasinId")
+                        .HasColumnType("int");
 
                     b.Property<string>("NomProduit")
                         .HasColumnType("longtext");
 
                     b.Property<float?>("Prix_unitaire")
                         .HasColumnType("float");
+
+                    b.Property<int?>("ProducteurId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Raisins")
                         .HasColumnType("longtext");
@@ -355,28 +490,42 @@ namespace NegoSudAPI.Migrations
                     b.Property<float>("Volume")
                         .HasColumnType("float");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProduitId");
+
+                    b.HasIndex("CatalogueId");
+
+                    b.HasIndex("CategorieId");
+
+                    b.HasIndex("FactureId");
+
+                    b.HasIndex("FournisseurId");
+
+                    b.HasIndex("InventaireId");
+
+                    b.HasIndex("MagasinId");
+
+                    b.HasIndex("ProducteurId");
 
                     b.ToTable("Produits");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Region", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("RegionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("NameRegion")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("RegionId");
 
                     b.ToTable("Regions");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Utilisateur", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UtilisateurId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -413,23 +562,176 @@ namespace NegoSudAPI.Migrations
                     b.Property<string>("Tel")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("UtilisateurId");
 
                     b.ToTable("Utilisateurs");
                 });
 
             modelBuilder.Entity("NegoSud_API.Models.Ville", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("VilleId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("NameVille")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("VilleId");
 
                     b.ToTable("Villes");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Adresse", b =>
+                {
+                    b.HasOne("NegoSud_API.Models.Utilisateur", "Utilisateur")
+                        .WithMany("Adresses")
+                        .HasForeignKey("UtilisateurId");
+
+                    b.Navigation("Utilisateur");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Commande", b =>
+                {
+                    b.HasOne("NegoSud_API.Models.ElemCommande", "ElemCommande")
+                        .WithMany()
+                        .HasForeignKey("ElemCommandeId");
+
+                    b.Navigation("ElemCommande");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.ElemFacture", b =>
+                {
+                    b.HasOne("NegoSud_API.Models.Facture", null)
+                        .WithMany("ElemFactures")
+                        .HasForeignKey("FactureId");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Facture", b =>
+                {
+                    b.HasOne("NegoSud_API.Models.Utilisateur", "Utilisateur")
+                        .WithMany()
+                        .HasForeignKey("UtilisateurId");
+
+                    b.Navigation("Utilisateur");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Fournisseur", b =>
+                {
+                    b.HasOne("NegoSud_API.Models.Pays", null)
+                        .WithMany("Fournisseurs")
+                        .HasForeignKey("PaysId");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Magasin", b =>
+                {
+                    b.HasOne("NegoSud_API.Models.Pays", null)
+                        .WithMany("Magasins")
+                        .HasForeignKey("PaysId");
+
+                    b.HasOne("NegoSud_API.Models.Region", null)
+                        .WithMany("Magasins")
+                        .HasForeignKey("RegionId");
+
+                    b.HasOne("NegoSud_API.Models.Ville", null)
+                        .WithMany("Magasins")
+                        .HasForeignKey("VilleId");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Producteur", b =>
+                {
+                    b.HasOne("NegoSud_API.Models.Pays", null)
+                        .WithMany("Producteurs")
+                        .HasForeignKey("PaysId");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Produit", b =>
+                {
+                    b.HasOne("NegoSud_API.Models.Catalogue", "Catalogue")
+                        .WithMany()
+                        .HasForeignKey("CatalogueId");
+
+                    b.HasOne("NegoSud_API.Models.Categorie", "Categorie")
+                        .WithMany("Produit")
+                        .HasForeignKey("CategorieId");
+
+                    b.HasOne("NegoSud_API.Models.Facture", null)
+                        .WithMany("Produits")
+                        .HasForeignKey("FactureId");
+
+                    b.HasOne("NegoSud_API.Models.Fournisseur", "Fournisseur")
+                        .WithMany("Produits")
+                        .HasForeignKey("FournisseurId");
+
+                    b.HasOne("NegoSud_API.Models.Inventaire", null)
+                        .WithMany("Produits")
+                        .HasForeignKey("InventaireId");
+
+                    b.HasOne("NegoSud_API.Models.Magasin", null)
+                        .WithMany("Produits")
+                        .HasForeignKey("MagasinId");
+
+                    b.HasOne("NegoSud_API.Models.Producteur", "Producteur")
+                        .WithMany()
+                        .HasForeignKey("ProducteurId");
+
+                    b.Navigation("Catalogue");
+
+                    b.Navigation("Categorie");
+
+                    b.Navigation("Fournisseur");
+
+                    b.Navigation("Producteur");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Categorie", b =>
+                {
+                    b.Navigation("Produit");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Facture", b =>
+                {
+                    b.Navigation("ElemFactures");
+
+                    b.Navigation("Produits");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Fournisseur", b =>
+                {
+                    b.Navigation("Produits");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Inventaire", b =>
+                {
+                    b.Navigation("Produits");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Magasin", b =>
+                {
+                    b.Navigation("Produits");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Pays", b =>
+                {
+                    b.Navigation("Fournisseurs");
+
+                    b.Navigation("Magasins");
+
+                    b.Navigation("Producteurs");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Region", b =>
+                {
+                    b.Navigation("Magasins");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Utilisateur", b =>
+                {
+                    b.Navigation("Adresses");
+                });
+
+            modelBuilder.Entity("NegoSud_API.Models.Ville", b =>
+                {
+                    b.Navigation("Magasins");
                 });
 #pragma warning restore 612, 618
         }
